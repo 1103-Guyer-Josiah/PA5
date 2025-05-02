@@ -11,5 +11,6 @@ class Board{
         char getPosition(int, int) const;
         void setPosition(int, int, char);
         void displayBoard(const Player);
+        bool collisionDetection();
 };
 #endif

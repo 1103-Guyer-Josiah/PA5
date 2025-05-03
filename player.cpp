@@ -1,15 +1,18 @@
 #include "player.h"
 
 Player::Player(){
-    int health{100}, numTrophy{0}, xPosition{0}, yPosition{0};
-    name = {};
+    int health =100;
+    int numTrophy = 0 ;
+    int xPosition = 0;
+    int yPosition = 0;
+    //name = {};
 }
 Player::Player(const Player &rh){
     health = rh.health;
     numTrophy = rh.numTrophy;
     xPosition = rh.xPosition;
     yPosition = rh.yPosition;
-    name = rh.name;
+    //name = rh.name;
 }
 int Player::getHealth()const{
     return health;
@@ -26,20 +29,22 @@ int Player::getxPosition()const{
 int Player::getyPosition()const{
     return yPosition;
 }
-
+/*
 string Player::getName()const{
     return name;
 }
-
+*/
 void Player::setyPosition(int i){
     yPosition += i;
 }
 void Player::setxPosition(int i){
     xPosition += i;
 }
+/*
 void Player::setName(string s){
     name = s;
 }
+*/    
 void Player::setHealth(int j){
     health=j;
 }

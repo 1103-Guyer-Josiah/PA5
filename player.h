@@ -5,8 +5,11 @@
 using namespace std;
 
 class Player{
-    int health{100}, numTrophy{0}, xPosition{0}, yPosition{0};
-    string name;
+    int health =100;
+    int numTrophy =0;
+    int xPosition = 0;
+    int yPosition =0;
+    //string name;
 
     public:
         Player();

@@ -1,7 +1,5 @@
 #include "trophy.h"
 
-
-
 Trophy::Trophy(){
     int count = 1, xPosition{0}, yPosition{0};
     bool triggeredStatus= false;

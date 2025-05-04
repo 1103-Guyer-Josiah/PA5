@@ -5,18 +5,12 @@
 using namespace std;
 
 class Player{
-<<<<<<< HEAD
     int health =100;
     int numTrophy =0;
     int xPosition = 0;
     int yPosition =0;
-    //string name;
-
-=======
-    int health{100}, numTrophy{0}, xPosition{0}, yPosition{0};
-    string name;
     friend ostream & operator << (ostream&, const Player&);
->>>>>>> 40e2733 (Check out the executable on this version)
+
     public:
         Player();
         Player(const Player&);

@@ -19,15 +19,29 @@ Item::Item(const Item& rh){
     t_Status = rh.t_Status;
 }
 Item::~Item() = default;
-int Item::getxPosition()const{return xPosition;}
-int Item::getyPosition()const{return yPosition;}
-int Item::getValue()const{return value;}
+int Item::getxPosition()const{
+    return xPosition;
+}
+int Item::getyPosition()const{
+    return yPosition;
+}
+int Item::getValue()const{
+    return value;
+}
 
-void Item::setxPosition(int x){xPosition= x;}
-void Item::setyPosition(int y){yPosition=y;}
-void Item::setStatus(){t_Status = true;}
+void Item::setxPosition(int x){
+    xPosition= x;
+}
+void Item::setyPosition(int y){
+    yPosition=y;
+}
+void Item::setStatus(){
+    t_Status = true;
+}
 
-void Item::resetValue(){value = 0;}
+void Item::resetValue(){
+    value = 0;
+}
 Item& Item::operator = (const Item& rh){
     xPosition = rh.xPosition;
     yPosition = rh.yPosition;

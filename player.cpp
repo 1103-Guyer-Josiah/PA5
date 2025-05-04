@@ -46,11 +46,29 @@ void Player::setName(string s){
 }
 */    
 void Player::setHealth(int j){
-    health=j;
+    health = health - j;
+}
+void Player::setNumTrophy(int i){
+    numTrophy +=i;
 }
 
 char Player::playerDisplay() const{
     return 'P';
+}
+
+bool Player::gameCheck(char input){
+    if (input=='q'){
+        return false;
+    }
+    if(getNumTrophy()== 3){
+        cout << "You have collected all the trophies!"<< endl;
+        return false;
+    }
+    if (getHealth()<= 0){
+        cout << "You have lost all your health!" << endl;
+        return false;
+    }
+    return true;
 }
 
 void Player::movePlayer(char n){
@@ -92,4 +110,11 @@ void Player::movePlayer(char n){
             }
             break;
     }
+}
+
+
+ostream & operator << (ostream& out, const Player& p){
+    out << "Health: " << p.health << "/100" << endl; 
+    out << "Trophies: " << p.numTrophy << "/3"<< endl;
+    return out;
 }

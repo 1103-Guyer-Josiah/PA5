@@ -1,21 +1,33 @@
 #include "board.h"
 #include "player.h"
-#include <iostream>
-#include <stdlib.h> 
+#include "trophy.h" 
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main(){
     Board grid;
+    Player user;
+    char start;
+
+    grid.RandArrayGen(user);
+    cout<< "Would you like to play Adventure Treasure Hunt?(y/n)"<<endl;
+    cin >> start;
+    if(start=='n'&&start=='n'){
+        "Fine! You smell, anyways!";
+        return 0;
+    } else{
     char input;
-    string name;
     Player user;
     system("clear");
     do{
-        grid.displayBoard(user);
-        cout<< "User Health: "<< user.getHealth()<<endl;
-        cout<<"User Trophies: "<< user.getNumTrophy()<<"/3"<<endl;
-        cin>>input;
+        grid.generateBoard(user);
+
+        cout << grid << endl;
+        cout << user << endl;
+        cin>> input;
         user.movePlayer(input);
+
         system("clear");
         /*
         we need to create a gamestatus check
@@ -26,7 +38,8 @@ int main(){
         tripped and be the
         parameter of the do while loop
         */
-    }while(input!='q');
-    return 0;
+    }while(user.gameCheck(input));
 
+    }
+    return 0;
 }

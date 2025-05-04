@@ -3,17 +3,26 @@
 #include <iostream>
 
 class Item{
-    int xPosition{0}, yPosition{0};
-    int value;
+    protected:
+        int xPosition = 0, yPosition = 0, value = 0;
+        bool t_Status = false; //trigger Status
 
     public:
-    int getxPosition():
-    int getyPosition();
+        Item();
+        Item(int, int);
+        Item(const Item&);
+        virtual ~Item();
 
-    void setyPosition();
-    void setxPosition();
+        int getValue()const;
+        int getxPosition() const;
+        int getyPosition()const;
 
-    virtual char itemDisplay(bool);
-    virtual int itemValue();
+        void resetValue();
+        void setyPosition(int);
+        void setxPosition(int);
+        void setStatus();
+
+        virtual char itemDisplay() const=0;
+        Item& operator =(const Item& rhs);
 };
 #endif

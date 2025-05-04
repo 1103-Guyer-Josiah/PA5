@@ -1,60 +1,39 @@
 #include "trophy.h"
 
-Trophy::Trophy(){
-    int count = 1, xPosition{0}, yPosition{0};
-    bool triggeredStatus= false;
+Trophy::Trophy():Item(){
+    value =1;
 }
-Trophy::Trophy(int x, int y){
-    count = 1;
-    xPosition = x;
-    yPosition = y;
-    triggeredStatus = false;
+Trophy::Trophy(int x, int y):Item(x,y){
+    value =1;
 }
-Trophy::Trophy(const Trophy &rh){
-    xPosition = rh.xPosition;
-    yPosition = rh.yPosition;
-    triggeredStatus = rh.triggeredStatus;
-    count = rh.count;
+Trophy::Trophy(const Trophy &rh):Item(rh){
+    value = rh.value;
 }
-
+/*
 int Trophy::getxPosition()const{
     return xPosition;
 }
-
 int Trophy::getyPosition()const{
     return yPosition;
 }
-
-int Trophy::getCount()const{
-    return count;
+int Trophy::getValue()const{
+    return value;
 }
 
-bool Trophy::getStatus()const{
-    return triggeredStatus;
+void Trophy::setxPosition(int x){
+    xPosition= x;
+}
+void Trophy::setyPosition(int y){
+    yPosition=y;
+}
+void Trophy::setStatus(){
+    t_Status = true;
 }
 
-void Trophy::setxPosition(int i){
-    xPosition= i;
+void Trophy::resetValue(){
+    value = 0;
 }
-
-void Trophy::setyPosition(int i){
-    yPosition=i;
-}
-
-void Trophy::setStatus(bool i){
-    triggeredStatus = i;
-}
-
-void Trophy::setCount(){
-    count = 0;
-}
-
-char Trophy::trophyDisplay(){
-    if(getStatus()==false){
-        return '.';
-    }
-    else{
-        setCount();
-        return 'T';
-    }
+*/
+char Trophy::itemDisplay()const{
+    return t_Status ? 'T' : '.';
 }

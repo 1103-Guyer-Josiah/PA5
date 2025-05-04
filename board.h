@@ -2,15 +2,22 @@
 #define BOARD_H
 #include <iostream>
 #include "player.h"
+#include "item.h"
 using namespace std;
 
 class Board{
         char grid[5][5];
+        Item* items[12];
+        int numTrophies = 5;
+        int numTraps = 5;
+        friend ostream & operator << (ostream&, const Board&);
     public:
         Board();
-        char getPosition(int, int) const;
-        void setPosition(int, int, char);
-        void displayBoard(const Player);
-        bool collisionDetection();
+        void place(int, int, char);
+        bool positionEmpty(int,int);
+        void generateBoard(Player&);
+        void RandArrayGen(const Player&);
+        void collisionDetection(Player&);
+
 };
 #endif

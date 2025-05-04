@@ -1,5 +1,5 @@
-game: main.o board.o player.o trophy.o trap.o item.o
-	g++ -o game main.o board.o player.o trophy.o trap.o item.o
+game: main.o board.o player.o trophy.o trap.o item.o opponent.o
+	g++ -o game main.o board.o player.o trophy.o trap.o item.o opponent.o
 
 main.o: main.cpp
 	g++ -c main.cpp -g
@@ -18,6 +18,9 @@ trap.o: trap.cpp trap.h
 
 item.o: item.cpp item.h
 	g++ -c item.cpp -g
+
+opponent.o: opponent.cpp opponent.h
+	g++ -c opponent.cpp -g
 
 clean:
 	rm *.o game

@@ -1,6 +1,7 @@
 #include "board.h"
 #include "player.h"
 #include "trophy.h" 
+#include "opponent.h"
 #include <cstdlib>
 #include <ctime>
 using namespace std;
@@ -8,6 +9,7 @@ using namespace std;
 int main(){
     Board grid;
     Player user;
+    Opponent jimmy;
     char start;
 
     grid.RandArrayGen(user);
@@ -21,23 +23,15 @@ int main(){
     Player user;
     system("clear");
     do{
-        grid.generateBoard(user);
-
-        cout << grid << endl;
+        grid.generateBoard(jimmy,user);
         cout << user << endl;
+        cout << grid << endl;
         cin>> input;
         user.movePlayer(input);
+        grid.OpponentMove(jimmy);
+      //  grid.OpponentMove(jimmy);
 
         system("clear");
-        /*
-        we need to create a gamestatus check
-        this will check if input is 'q'
-        this will check trophies 
-        this will check health
-        this will return true when these are 
-        tripped and be the
-        parameter of the do while loop
-        */
     }while(user.gameCheck(input));
 
     }

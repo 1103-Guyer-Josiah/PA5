@@ -2,7 +2,7 @@
 
 Player::Player(){
     int health =100;
-    int numTrophy = 0 ;
+    int numTrophy = 0;
     int xPosition = 0;
     int yPosition = 0;
     //name = {};
@@ -114,7 +114,6 @@ void Player::movePlayer(char n){
 
 
 ostream & operator << (ostream& out, const Player& p){
-    out << "Health: " << p.health << "/100" << endl; 
-    out << "Trophies: " << p.numTrophy << "/3"<< endl;
+    out << "Health: " << p.health <<  " | Treasures: " << p.numTrophy << "/3"<< endl;
     return out;
 }

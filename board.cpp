@@ -1,8 +1,9 @@
 #include "board.h"
 #include "player.h"
-#include "item.h"
+#include "item.h" 
 #include "trap.h"
 #include "trophy.h"
+#include "opponent.h"
 #include <ctime>
 #include <cstdlib>
    
@@ -52,12 +53,23 @@ void Board::RandArrayGen(const Player& p){
     cout <<endl;
 }
 
+void Board::OpponentMove(Opponent& p){
+    srand(time(0));
+    int x = rand()% 5;
+    int y = rand()% 5;
+    p = Opponent(x,y);
+    place(p.getxPosition(),p.getyPosition(),'.');
+}
+
 bool Board::positionEmpty(int x,int y){
         return grid[y][x]=='\0';
 }
 
-void Board::collisionDetection(Player& p){
-    
+void Board::collisionDetection(Opponent& o, Player& p){
+    if(o.getxPosition()==p.getxPosition()&&
+            o.getyPosition()==p.getyPosition()){
+                p.setHealth(o.getValue());
+            }
     
     for(int i = 0; i < numTraps + numTrophies; i++){
         if(items[i]->getxPosition() == p.getxPosition()&&
@@ -71,17 +83,25 @@ void Board::collisionDetection(Player& p){
                         p.setHealth(items[i]->getValue());
                         items[i]->resetValue();
                     }
+                    if(items[i]->itemDisplay()=='X'){
+                        p.setHealth(items[i]->getValue());
+                        items[i]->resetValue();
+                    }
+                    
+
                 }
             }
         }
 
-void Board::generateBoard(Player& p){
+
+void Board::generateBoard(Opponent& o,Player& p){
     //refreshes board
     for (int i = 0; i < 5; ++i){
         for (int j = 0; j < 5; ++j){
             grid[i][j] = '\0'; 
             }
         }
+ 
  
     //Places items on board
     for(int i = 0; i < (numTraps+numTrophies); i++){
@@ -99,10 +119,9 @@ void Board::generateBoard(Player& p){
     }
 
        //places player
-       place(p.getxPosition(), 
-       p.getyPosition(),
-       p.playerDisplay());
-       collisionDetection(p);
+       place(p.getxPosition(), p.getyPosition(), p.playerDisplay());
+       place(o.getxPosition(), o.getyPosition(), '.');
+       collisionDetection(o,p);
 
 }
 

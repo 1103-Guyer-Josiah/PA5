@@ -1,18 +1,25 @@
 #include "player.h"
 
 Player::Player(){
-    int health =100;
-    int numTrophy = 0;
-    int xPosition = 0;
-    int yPosition = 0;
-    //name = {};
+    health =100;
+    numTrophy = 0;
+    xPosition = 0;
+    yPosition = 0;
+    name = "Player";
+}
+Player::Player(string p){
+    health =100;
+    numTrophy = 0;
+    xPosition = 0;
+    yPosition = 0;
+    name = p;
 }
 Player::Player(const Player &rh){
     health = rh.health;
     numTrophy = rh.numTrophy;
     xPosition = rh.xPosition;
     yPosition = rh.yPosition;
-    //name = rh.name;
+    name = rh.name;
 }
 int Player::getHealth()const{
     return health;
@@ -25,6 +32,9 @@ int Player::getNumTrophy()const{
 int Player::getxPosition()const{
     return xPosition;
 }
+string Player::getName()const{
+    return name;
+}
 
 int Player::getyPosition()const{
     return yPosition;
@@ -36,6 +46,9 @@ string Player::getName()const{
 */
 void Player::setyPosition(int i){
     yPosition += i;
+}
+void Player::setName(string i){
+    name = i;
 }
 void Player::setxPosition(int i){
     xPosition += i;
@@ -114,6 +127,7 @@ void Player::movePlayer(char n){
 
 
 ostream & operator << (ostream& out, const Player& p){
+    out << "Player: " << p.name << endl;
     out << "Health: " << p.health <<  " | Treasures: " << p.numTrophy << "/3"<< endl;
     return out;
 }

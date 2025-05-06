@@ -8,19 +8,21 @@ using namespace std;
 
 int main(){
     Board grid;
-    Player user;
     Opponent jimmy;
     char start;
-
-    grid.RandArrayGen(user);
+    string name;
     cout<< "Would you like to play Adventure Treasure Hunt?(y/n)"<<endl;
     cin >> start;
-    if(start=='n'&&start=='n'){
-        "Fine! You smell, anyways!";
+    if(start=='n'||start=='n'){
+        cout << "Fine! You smell, anyways!"<<endl;
         return 0;
     } else{
+    cout << "Choose Your Name: ";
+    cin >> name;
+    Player user(name);
+    grid.RandArrayGen(user);
+
     char input;
-    Player user;
     system("clear");
     do{
         grid.generateBoard(jimmy,user);
@@ -29,7 +31,6 @@ int main(){
         cin>> input;
         user.movePlayer(input);
         grid.OpponentMove(jimmy);
-      //  grid.OpponentMove(jimmy);
 
         system("clear");
     }while(user.gameCheck(input));

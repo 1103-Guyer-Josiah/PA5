@@ -69,6 +69,7 @@ void Board::collisionDetection(Opponent& o, Player& p){
     if(o.getxPosition()==p.getxPosition()&&
             o.getyPosition()==p.getyPosition()){
                 p.setHealth(o.getValue());
+                cout << "Enemy attacked! -30 >:O"<<endl;
             }
     
     for(int i = 0; i < numTraps + numTrophies; i++){
@@ -78,16 +79,13 @@ void Board::collisionDetection(Opponent& o, Player& p){
                     if(items[i]->itemDisplay()=='T'){
                         p.setNumTrophy(items[i]->getValue());
                         items[i]->resetValue();
+                        cout << "You found treasure! +1 :D"<<endl;
                     }
                     if(items[i]->itemDisplay()=='X'){
                         p.setHealth(items[i]->getValue());
                         items[i]->resetValue();
+                        cout << "You stepped on a trap! -20 :("<< endl;
                     }
-                    if(items[i]->itemDisplay()=='X'){
-                        p.setHealth(items[i]->getValue());
-                        items[i]->resetValue();
-                    }
-                    
 
                 }
             }

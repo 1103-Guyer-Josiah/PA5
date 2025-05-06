@@ -9,10 +9,12 @@ class Player{
     int numTrophy = 0;
     int xPosition = 0;
     int yPosition = 0;
+    string name = "Player";
     friend ostream & operator << (ostream&, const Player&);
 
     public:
         Player();
+        Player(string);
         Player(const Player&);
 
 
@@ -20,7 +22,7 @@ class Player{
         int getNumTrophy() const;
         int getxPosition() const;
         int getyPosition() const;
-        //string getName() const;
+        string getName() const;
 
         void setHealth(int);
         void setNumTrophy(int);
@@ -29,6 +31,6 @@ class Player{
         char playerDisplay() const;
         void movePlayer(char);
         bool gameCheck(char);
-        //void setName(string);
+        void setName(string);
 };
 #endif

@@ -1,3 +1,7 @@
+/*
+Edited by Guyer,Josiah
+5/8/2025
+*/
 #include "trap.h"
 #include "item.h"
 

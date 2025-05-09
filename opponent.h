@@ -1,3 +1,7 @@
+/*
+Edited by Guyer,Josiah
+5/8/2025
+*/
 #ifndef OPPONENT_H
 #define OPPONENT_H
 #include <iostream>

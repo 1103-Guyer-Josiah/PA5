@@ -1,3 +1,7 @@
+/*
+Edited by Matt
+5/8/2025
+*/
 #include "player.h"
 
 Player::Player(){

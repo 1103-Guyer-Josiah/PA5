@@ -1,3 +1,7 @@
+/*
+Edited by Guyer,Josiah
+5/8/2025
+*/
 #ifndef TROPHY_H
 #define TROPHY_H
 
